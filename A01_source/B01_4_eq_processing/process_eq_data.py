@@ -16,10 +16,8 @@ def main():
     try:
         ask_for_data_update()
         
-        # Update data to the new parameters
         print("🔄 Processing data...")   
 
-        # Configure paths
         current_dir = os.path.dirname(os.path.abspath(__file__))
         base_dir = os.path.dirname(os.path.dirname(current_dir))
         
@@ -29,12 +27,10 @@ def main():
         input_csv_filtered = os.path.join(base_dir, "A00_data", "B_eq_processed", f"{files[1]}")
         output_folder = os.path.join(base_dir, "A04_web", "B_images")
 
-        # Verify input file exists
         if not os.path.exists(input_csv):
             print(f"❌ Error: File not found at {input_csv}", file=sys.stderr)
             return 1
         
-        # Create output folder
         os.makedirs(output_folder, exist_ok=True)
 
         eq_data = pd.read_csv(input_csv)
@@ -43,7 +39,6 @@ def main():
         eq_filtered_data = pd.read_csv(input_csv_filtered)
         print(f"✅ Filtered data loaded successfully ({len(eq_filtered_data)} records)")
         
-        # Generate outputs
         print("🔄 Generating table...")
         generate_table(eq_data, output_folder)
         print("✅ Table generated successfully")
@@ -81,26 +76,26 @@ def ask_for_data_update():
 
             if input_ask3 == "yes":
                 print("Dowloading only events with trigger index <= 100...")
-                pre.optimized_download(dwl_opt= input_ask2, discard_trigger_index= input_ask3)
+                pre.user_answers(dwl_opt= input_ask2, discard_trigger_index= input_ask3)
             if input_ask3 == "no":
                 print("Downloading all events")
-                pre.optimized_download(dwl_opt= input_ask2, discard_trigger_index= input_ask3)       
+                pre.user_answers(dwl_opt= input_ask2, discard_trigger_index= input_ask3)       
             
         if input_ask2 == "no":
             print("Download method: not optimized (getting all events)")  
             if input_ask3 == "yes":
                 print("Dowloading only events with trigger index <= 100...")
-                pre.optimized_download(dwl_opt= input_ask2, discard_trigger_index= input_ask3)
+                pre.user_answers(dwl_opt= input_ask2, discard_trigger_index= input_ask3)
             if input_ask3 == "no":
                 print("Downloading all events")
-                pre.optimized_download(dwl_opt= input_ask2, discard_trigger_index= input_ask3)
+                pre.user_answers(dwl_opt= input_ask2, discard_trigger_index= input_ask3)
 
     if input_ask1 == "no":
         print("No updates applied.")
         if input_ask2 == "yes" or input_ask2 == "no":
             if input_ask3 == "yes":
                 print("Applying filter to trigger index...")
-                pre.discard_by_max_trigger_index("wrk_df.csv", 100)
+                pre.discard_by_max_trigger_index(file="wrk_df.csv")
             if input_ask3 == "no":
                 print("No filter applied.")
 
@@ -277,7 +272,6 @@ def generate_map(data, output_folder, is_filtered=False):
             with open(map_html_path, "r", encoding="utf-8") as f:
                 html_content = f.read()
 
-        # Agregar estilo CSS para bordes redondeados
             rounded_style = """
             <style>
                 .main-svg-container {
@@ -289,7 +283,6 @@ def generate_map(data, output_folder, is_filtered=False):
             """
             html_content = html_content.replace("<head>", f"<head>{rounded_style}")
 
-        # Guardar el archivo HTML modificado
             with open(map_html_path, "w", encoding="utf-8") as f:
                 f.write(html_content)
 
@@ -310,14 +303,13 @@ def generate_histogram(data, output_folder):
             title = None
         )
 
-        # Configurar el diseño del histograma
         fig.update_layout(
             title_font = dict(size=20),
             xaxis_title = "Trigger Index",
             yaxis_title = "Frequency",
             bargap = 0.2,
             coloraxis_colorbar = dict(
-                title = "Trigger Index",  # Título de la barra de colores
+                title = "Trigger Index", 
                 tickvals = [data["trigger_index"].min(), data["trigger_index"].max()],
                 ticktext = ["Low", "High"]),
             xaxis = dict(
@@ -332,7 +324,6 @@ def generate_histogram(data, output_folder):
             )
         )
 
-        # Guardar el histograma como un archivo HTML
         fig.write_html(hist_html_path, full_html=True)
         print(f"✅ Histogram saved to: {hist_html_path}")
     except Exception as e:
