@@ -1540,7 +1540,7 @@ iframe {
                 <td>370.86</td>
               </tr>
               <tr>
-                <td>2 Background </td>
+                <td>Background </td>
                 <td>2 Feb 2022 - end</td>
                 <td>288.23</td>
                 <td>241.08</td>
