@@ -3493,7 +3493,7 @@ HTML(f"""
     <img src="B_images/earthquake-icon-naranja.png" alt="Earthquake Icon" class="earthquake-logo">
   </div>
   <div class="volcana-title" style="color: #d7512c; font-size: 2.5em; font-weight: bold; margin-top: 10px;">
-    Volcanic-Seismic Relation
+    Volcanic-Seismic Correlation
   </div>
 </div>
     </div>
@@ -3985,7 +3985,6 @@ iframe {
   <div class="ded-table-container">
     <iframe src="./B_images/eq_table.html" class="ded-iframe"></iframe>
   </div>
-  <div class="visualization-caption">Registered data table of the events shown.<br>Note: Earthquakes within a distance of 25km are considered caused by the volcanic activity and not the cause of it.</div>
   <div class="visualization-caption">Registered data table of the events shown.<br>Note: Earthquakes within a distance of 25km are considered caused by the volcanic activity and not the cause of it.</div>
 </div>
 
