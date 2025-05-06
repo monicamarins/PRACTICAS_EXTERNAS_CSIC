@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 # === PATH SETUP ===
 # Resolve script location and locate root project directory
 script_path = Path(__file__).resolve()
-project_dir = next(p for p in script_path.parents if p.name == "Practicas_Empresa_CSIC")
+project_dir = next(p for p in script_path.parents if p.name == "PRACTICAS_EXTERNAS_CSIC")
 
 # Define input and output paths for Teide data
 input_base_path = project_dir / "A00_data" / "B_raw" / "Teide"

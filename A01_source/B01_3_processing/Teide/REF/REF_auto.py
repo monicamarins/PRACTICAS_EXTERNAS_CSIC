@@ -8,7 +8,7 @@ from pathlib import Path
 # === CONFIGURATION ===
 # Get the path of this script and locate the project root
 script_path = Path(__file__).resolve()
-project_dir = next(p for p in script_path.parents if p.name == "Practicas_Empresa_CSIC")
+project_dir = next(p for p in script_path.parents if p.name == "PRACTICAS_EXTERNAS_CSIC")
 
 # Define input and output directories
 base_path = project_dir / "A00_data" / "B_processed" / "Teide" / "BT_daily_pixels"

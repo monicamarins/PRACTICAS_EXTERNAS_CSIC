@@ -2,7 +2,7 @@ import xarray as xr
 import matplotlib.pyplot as plt
 
 # === CONFIGURACIÓN ===
-ruta_ref = '/Users/moni/Desktop/Practicas_Empresa_CSIC-1/A00_data/B_processed/La_Palma/REF/Ref_2022_04.nc'
+ruta_ref = './PRACTICAS_EXTERNAS_CSIC/A00_data/B_processed/La_Palma/REF/Ref_2022_04.nc'
 
 # Coordenadas de interés (La Palma)
 lat_min = 28.45

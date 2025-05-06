@@ -99,8 +99,8 @@ def process_nc_file(nc_file, output_base_path):
 
 # === PATH CONFIGURATION ===
 #script_path = Path(__file__).resolve().parent
-input_base_path = Path("/Users/moni/Desktop/Practicas_Empresa_CSIC-1/A00_data/B_raw/Lanzarote")
-output_path = Path("/Users/moni/Desktop/Practicas_Empresa_CSIC-1/A00_data/B_processed/Lanzarote/BT_daily_pixels")
+input_base_path = Path("./PRACTICAS_EXTERNAS_CSIC/A00_data/B_raw/Lanzarote")
+output_path = Path("./PRACTICAS_EXTERNAS_CSIC/A00_data/B_processed/Lanzarote/BT_daily_pixels")
 
 # === LOOP THROUGH FILES AND FILTER BY DATE ===
 for folder in sorted(input_base_path.glob("20*_???")):

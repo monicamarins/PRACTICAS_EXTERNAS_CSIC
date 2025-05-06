@@ -12,7 +12,7 @@ from dateutil.relativedelta import relativedelta
 
 # === CONFIGURACIÓN ===
 script_path = Path(__file__).resolve()
-proyecto_dir = next(p for p in script_path.parents if p.name == "Practicas_Empresa_CSIC-1")
+proyecto_dir = next(p for p in script_path.parents if p.name == "PRACTICAS_EXTERNAS_CSIC")
 base_path = proyecto_dir / "A00_data" / "B_processed" / "Lanzarote" / "BT_daily_pixels"
 output_dir = proyecto_dir / "A00_data" / "B_processed" / "Lanzarote" / "REF"
 output_dir.mkdir(parents=True, exist_ok=True)

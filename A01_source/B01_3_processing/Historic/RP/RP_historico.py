@@ -13,7 +13,7 @@ from variables import lat_max, lat_min, lon_max, lon_min
 script_path = Path(__file__).resolve()
 
 # Locate the root project directory based on its name
-project_dir = next(p for p in script_path.parents if p.name == "Practicas_Empresa_CSIC")
+project_dir = next(p for p in script_path.parents if p.name == "PRACTICAS_EXTERNAS_CSIC")
 
 # Set input and output paths
 base_path = project_dir / "A00_data" / "B_processed" / "Lanzarote" / "BT_daily_pixels"

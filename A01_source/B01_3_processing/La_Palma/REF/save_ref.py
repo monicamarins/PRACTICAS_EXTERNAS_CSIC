@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 
 # === CONFIGURACIÓN ===
-ruta_refs = Path('/Users/moni/Desktop/Practicas_Empresa_CSIC-1/A00_data/B_processed/Teide/REF')
+ruta_refs = Path('./PRACTICAS_EXTERNAS_CSIC/A00_data/B_processed/Teide/REF')
 ruta_salida = ruta_refs / "plots"
 ruta_salida.mkdir(parents=True, exist_ok=True)
 

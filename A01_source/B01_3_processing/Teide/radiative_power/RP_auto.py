@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 # === CONFIGURATION ===
 # Resolve script path and locate root project directory
 script_path = Path(__file__).resolve()
-project_dir = next(p for p in script_path.parents if p.name == "Practicas_Empresa_CSIC")
+project_dir = next(p for p in script_path.parents if p.name == "PRACTICAS_EXTERNAS_CSIC")
 
 # Define input directory for BT data and output path for FRP results
 bt_dir = project_dir / "A00_data" / "B_processed" / "Teide" / "BT_daily_pixels"
