@@ -2,20 +2,20 @@ import os
 import pandas as pd
 import numpy as np
 import shutil
-# Constants
+
 R_earth = 6378.1 # km | Equatorial radius (source: NASA's Earth Fact Sheet)
 
 def saving_data(df, filename, folder="B_eq_raw"):
 
-    script_dir = os.path.dirname(os.path.abspath(__file__))  # Script path
-    project_root = os.path.abspath(os.path.join(script_dir, "../../"))  # Project root path
+    script_dir = os.path.dirname(os.path.abspath(__file__))  
+    project_root = os.path.abspath(os.path.join(script_dir, "../../"))  
 
-    eq_dir = os.path.join(project_root, f"A00_data/{folder}") # Eq. data folder
+    eq_dir = os.path.join(project_root, f"A00_data/{folder}") 
 
     if not os.path.exists(eq_dir):
         os.makedirs(eq_dir)
 
-    filepath = os.path.join(eq_dir, filename) # File path to save the data
+    filepath = os.path.join(eq_dir, filename) 
 
     df.to_csv(filepath, index=False)
        
@@ -30,12 +30,10 @@ def date_format(date):
 
 def limit_region_coords(lat_cent, lon_cent, region_rad):
 
-    #Differential of the angle and then the lat and long
     d_theta = region_rad / R_earth
     d_lat = np.degrees(d_theta)  
     d_lon = np.degrees(d_theta) / np.cos(np.radians(lat_cent))
 
-    #Creating the square interval
     lat_min = lat_cent - d_lat
     lat_max = lat_cent + d_lat
     lon_min = lon_cent - d_lon
@@ -93,7 +91,6 @@ def move_file_to_project(file_name, output_file_name="external_data.csv"):
     destination_file_path = os.path.join(destination_folder, output_file_name)
 
     try:
-        # Mover el archivo
         shutil.move(source_path, destination_file_path)
         print(f"✅ Archivo movido a: {destination_file_path}")
     except FileNotFoundError:
