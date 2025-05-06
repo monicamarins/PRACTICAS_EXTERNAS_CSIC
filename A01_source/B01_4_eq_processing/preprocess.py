@@ -40,9 +40,9 @@ def trigger_index(L_method="Singh", file_name="wrk_df.csv"):
     file_path = os.path.join(project_root, f"A00_data/B_eq_processed/{file_name}")
 
     df = pd.read_csv(file_path)
-    center_coords = dwl.ref[2]
-    lat1 = center_coords[0]
-    lon1 = center_coords[1]
+
+    lat1 = dwl.lat_cent
+    lon1 = dwl.lon_cent
 
     result_df = pd.DataFrame(columns=["id","time", "magnitude", "magtype", "depth", "latitude", "longitude", "distance", "trigger_index" ])
     
@@ -79,12 +79,12 @@ def discard_by_max_trigger_index(file="wrk_df.csv", max_trigger_index= 100.0):
     utils.saving_data(result_df, "trigger_index_filtered.csv", folder="B_eq_processed")
     return result_df
 
-def optimized_download(dwl_opt="no", discard_trigger_index="no"):
+def user_answers(dwl_opt="no", discard_trigger_index="no"):
 
     if dwl_opt == "no":
         dwl.download_all_by_region(*ref)
         if discard_trigger_index == "yes":
-            discard_by_max_trigger_index(file="wrk_df.csv", max_trigger_index=100.0)
+            discard_by_max_trigger_index(file="wrk_df.csv")
         if discard_trigger_index == "no":
             trigger_index(L_method="Singh")
         return print("All vents downloaded in 'wrk_df.csv'")
@@ -92,12 +92,8 @@ def optimized_download(dwl_opt="no", discard_trigger_index="no"):
     elif dwl_opt == "yes":
         dwl.download_optimized(*ref)
         if discard_trigger_index == "yes":
-            discard_by_max_trigger_index(file="wrk_df.csv", max_trigger_index=100.0)
+            discard_by_max_trigger_index(file="wrk_df.csv")
         if discard_trigger_index == "no":
             trigger_index(L_method="Singh")
 
         return print("Only relevants events downloaded in 'trigger_index_filtered.csv'")
-
-
-
-        print(f"❌ Error al mover el archivo: {e}")
