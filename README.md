@@ -64,7 +64,7 @@ To run this project locally, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Jesus-Javier-code/Practicas_Empresa_CSIC.git
+   git clone https://github.com/monicamariins/PRACTICAS_EXTERNAS_CSIC.git
 2. Install the required dependencies::
    ```bash
    pip install -r requirements.txt
@@ -99,4 +99,8 @@ We would like to acknowledge the following:
 - **[Instituto de Productos Naturales y Agrobiología](https://ipna.csic.es/)**
 - To **Pablo José González and Thomas Boulesteix** for their collaboration and support throughout the project.
 - Special thanks to **Simone Salvatore Aveni** for providing crucial data for the completion of this project.
+
+## 
+
+This repository represents the final version of the project. Throughout the development process, we also maintained another repository where we worked and learned how to use GitHub. You can check it out at the following link: (https://github.com/Jesus-Javier-code/Practicas_Empresa_CSIC.git)
 
