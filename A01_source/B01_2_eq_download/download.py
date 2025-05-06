@@ -44,10 +44,8 @@ def search_by_minimum_magnitude(date_i, date_f, min_mag, center_coords, reg_rad)
 
 #-------------------------------------------------------------------------
 
-# This function downloads all events in a given region, the data is stored in eq_raw folder
 def download_all_by_region(date_i, date_f, center_coords, reg_rad):
 
-    # Center coordinates must be given as (latitude, longitude) form
     lat_cent, lon_cent = center_coords
     lat_min, lat_max, lon_min, lon_max = utils.limit_region_coords(lat_cent, lon_cent, reg_rad)
 
@@ -76,8 +74,6 @@ def download_all_by_region(date_i, date_f, center_coords, reg_rad):
     return merged_df, center_coords
 
 def working_df(df1, df2, file_name = "wrk_df.csv"):
-    # Create a working dataframe with the next variables:
-    # ID, Date, Magnitude, Magtype, Latitude, Longitude, Depth (km)
     
     variables = ["id", "time", "magnitude", "magtype", "latitude", "longitude", "depth"]
 
@@ -107,7 +103,6 @@ def working_df(df1, df2, file_name = "wrk_df.csv"):
 def download_optimized(date_i, date_f, center_coords, reg_rad):
     min_mag, distance_list = utils.simulate_min_mag_by_radius(reg_rad, max_trigger_index= 100.0, L_method= "Singh")
     
-    # Search area coordinates
     lat_cent, lon_cent = center_coords
     lat_min, lat_max, lon_min, lon_max = utils.limit_region_coords(lat_cent, lon_cent, reg_rad)
 
@@ -117,7 +112,6 @@ def download_optimized(date_i, date_f, center_coords, reg_rad):
     cumulative_summary_df = pd.DataFrame()
     cumulative_detail_df = pd.DataFrame()
 
-    # Smaller search area
     for i in tqdm(range(len(distance_list)), desc=f"Procesando para cada radio"):
         lat_min_list, lat_max_list, lon_min_list, lon_max_list = utils.limit_region_coords(lat_cent, lon_cent, distance_list[i])
 
@@ -156,7 +150,7 @@ def download_optimized(date_i, date_f, center_coords, reg_rad):
     utils.saving_data(cumulative_summary_df, "bsc_events_info.csv", folder = "B_eq_raw")
     utils.saving_data(cumulative_detail_df, "dtl_mag_events_info.csv", folder = "B_eq_raw")
 
-    return working_df(cumulative_summary_df, cumulative_detail_df, file_name="trigger_index_filtered.csv"), center_coords
+    return working_df(cumulative_summary_df, cumulative_detail_df, file_name="wrk_df.csv"), center_coords
 
 def coordinates_format(lat, lon):
     coords = (lat, lon)
@@ -166,6 +160,7 @@ def update_ref(date_i, date_f, coords, region):
     ref = ref(date_i, date_f, coords, region)
     return ref
 
+# Unfinished
 def process_ign_file(file_name, file_path):
     path = os.path.dirname(os.path.abspath(__file__))
     project_root = os.path.abspath(os.path.join(path, "..", ".."))
@@ -173,24 +168,25 @@ def process_ign_file(file_name, file_path):
 
     try:
         text_file = pd.read_table(f'{file_name}', sep='\t')
-        text_file.to_csv(f'{file_name}', index=False) # index=False para evitar que se agregue una columna de índice
+        text_file.to_csv(f'{file_name}', index=False)
         print(f"Succeed conversion '{file_name}' to CSV")
     except FileNotFoundError:
         print("File not found.")
     except pd.errors.ParserError as e:
         print(f"Error: {e}")
-    
-    
+        
     return id
 
+#--------------------------------------------------------------------------
 
-date_i = "1973-01-01 00:00"
+date_i = "2010-01-01 00:00"
 date_f = "2025-04-29 00:00"
-lat_cent = 28.612777777778
-lon_cent = -17.866111111111
+lat_cent = 64.12583485520874
+lon_cent = -21.801875984550193
 reg_rad = 350
 
 ref = (date_i, date_f, coordinates_format(lat_cent, lon_cent), reg_rad)
 
-#download_all_by_region(*ref)
-#download_optimized(*ref)
+# Ways to call the functions:
+# download_all_by_region(*ref)
+# download_optimized(*ref)
