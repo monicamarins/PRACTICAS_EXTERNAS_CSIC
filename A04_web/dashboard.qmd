@@ -2512,7 +2512,7 @@ iframe {
         </div>
         <div class="histogram-container">
           <iframe src="./B_images/eq_map_filtered-lapalma.html"></iframe>
-          <div class = "visualization-caption">Registered earthquakes in the USGS catalog <br> in the selected area and period of time.</div>
+          <div class = "visualization-caption">Registered earthquakes in the USGS catalog <br> in the selected area and period of time filtered .</div>
         </div>
       </div>
     </div>
@@ -3840,7 +3840,7 @@ iframe {
         </div>
         <div class="histogram-container">
           <iframe src="./B_images/eq_map_filtered.html"></iframe>
-          <div class = "visualization-caption">Registered earthquakes in the USGS catalog <br> in the selected area and period of time.</div>
+          <div class = "visualization-caption">Registered earthquakes in the USGS catalog <br> in the selected area and period of time filtered.</div>
         </div>
       </div>
     </div>
@@ -4588,7 +4588,7 @@ HTML('''
         </div>
         <div class="histogram-container">
           <iframe src="./B_images/eq_map_filtered-tenerife.html"></iframe>
-          <div class = "visualization-caption">Registered earthquakes in the USGS catalog <br> in the selected area and period of time.</div>
+          <div class = "visualization-caption">Registered earthquakes in the USGS catalog <br> in the selected area and period of time filtered.</div>
         </div>
       </div>
     </div>
