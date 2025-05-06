@@ -86,7 +86,7 @@ For any questions, feel free to reach out:
   - Jesús Javier Apesteguía: [alu0101465142@ull.edu.es](mailto:alu0101465142@ull.edu.es)
   - Laura Rodríguez: [alu0101513249@ull.edu.es](mailto:alu0101513249@ull.edu.es)
 
-- **GitHub**: [Jesus-Javier-code/Practicas_Empresa_CSIC]([https://github.com/Jesus-Javier-code/Practicas_Empresa_CSIC.git])
+- **GitHub**: [monicamariins/PRACTICAS_EXTERNAS_CSIC]([https://github.com/monicamarins/PRACTICAS_EXTERNAS_CSIC.git])
 
 ## Acknowledgements
 
