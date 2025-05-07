@@ -58,15 +58,12 @@ def main():
     # Run the scripts in the correct order
     run_script(download_script_LaPalma)  # First, download the data
     run_script(download_script_Teide)
-    run_script(download_script_Lanzarote)
     run_script(bt_script_LaPalma)        # Then, convert it to brightness temperature (BT)
     run_script(bt_script_Teide)        # Then, convert it to brightness temperature (BT)
-    run_script(bt_script_Lanzarote)        # Then, convert it to brightness temperature (BT)
     #run_script(ref_script_LaPalma)       # Next, calculate the REF
     #run_script(ref_script_Teide)       # Next, calculate the REF
     run_script(rp_script_LaPalma)        # Finally, calculate the radiative power (FRP)
     run_script(rp_script_Teide)        # Finally, calculate the radiative power (FRP)
-    run_script(rp_script_lanzarote)        # Finally, calculate the radiative power (FRP)
 
 
     print("Process completed successfully.")
